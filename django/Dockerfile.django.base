@@ -1,0 +1,11 @@
+# 태그명은 django.base로 사용
+FROM        python:3.6.3-slim
+MAINTAINER  dev@azelf.com
+
+ENV         LANG C.UTF-8
+
+RUN         apt-get -y update
+RUN         apt-get -y install build-essential nginx supervisor rabbitmq-server && \
+            pip install uwsgi && \
+            apt-get -y remove build-essential && \
+            apt-get -y autoremove
